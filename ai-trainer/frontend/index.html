@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personal Gym Trainer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏋️ AI Personal Gym Trainer</h1>
+            <p>Real-time form analysis and rep counting</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Video Section -->
+            <div class="video-section">
+                <!-- Exercise Selection -->
+                <div class="exercise-selector">
+                    <label for="exerciseSelect">Select Exercise:</label>
+                    <select id="exerciseSelect">
+                        <option value="squat">🏋️ Squat</option>
+                        <option value="boxing">🥊 Boxing</option>
+                        <option value="waving">👋 Waving</option>
+                        <option value="jumping">🦘 Jumping</option>
+                    </select>
+                </div>
+
+                <!-- Instructions Panel -->
+                <div class="instructions-panel">
+                    <h3>📋 Instructions</h3>
+                    <div id="instructionText">
+                        <strong>Squat:</strong>
+                        <ul>
+                            <li>Stand with feet shoulder-width apart</li>
+                            <li>Keep your back straight</li>
+                            <li>Lower your hips until thighs are parallel to ground</li>
+                            <li>Push through heels to return to start</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Video Container -->
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+                
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">Start Camera</button>
+                    <button id="stopBtn" class="btn btn-secondary" disabled>Stop</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset Count</button>
+                </div>
+
+                <!-- Status -->
+                <div id="status" class="status">
+                    <span class="status-dot"></span>
+                    <span id="statusText">Ready to start</span>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <!-- Rep Count Card -->
+                <div class="stat-card highlight">
+                    <div class="stat-label">Rep Count</div>
+                    <div id="repCount" class="stat-value">0</div>
+                </div>
+
+                <!-- Phase Card -->
+                <div class="stat-card">
+                    <div class="stat-label">Current Phase</div>
+                    <div id="phase" class="stat-value">-</div>
+                </div>
+
+                <!-- Exercise Card -->
+                <div class="stat-card">
+                    <div class="stat-label">Current Exercise</div>
+                    <div id="currentExercise" class="stat-value">Squat</div>
+                </div>
+
+                <!-- Feedback Card -->
+                <div class="feedback-card">
+                    <div class="feedback-label">💬 Live Feedback</div>
+                    <div id="feedback" class="feedback-text">Select an exercise and start your camera to begin!</div>
+                </div>
+
+                <!-- Tips Card -->
+                <div class="tips-card">
+                    <div class="tips-label">💡 Tips</div>
+                    <div class="tips-text">
+                        • Position yourself 6-8 feet from camera<br>
+                        • Ensure full body is visible<br>
+                        • Good lighting helps detection<br>
+                        • Perform movements slowly and controlled
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Exercise: <span id="footerExercise">Squat</span> | Model: Rule-based Detection | Status: <span id="footerStatus">Ready</span></p>
+        </footer>
+    </div>
+
+    <!-- MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    
+    <!-- App Script -->
+    <script src="app.js?v=2"></script>
+</body>
+</html>
