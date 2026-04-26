@@ -97,7 +97,7 @@ npm run dev
 ## Contributors
 
 Kanishka Gole — https://github.com/KanishkaGole
-Arya Dixit — https://github.com/gokuvegetaarya-create
+Arya Dixit — https://github.com/Aarya-dixit
 
 ---
 
